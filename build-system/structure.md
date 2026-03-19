@@ -12,7 +12,7 @@ Our build and pack system follows the structure that is outlined below to give y
 
 ***
 
-## <mark style="color:$info;">Required structure</mark>
+## <mark style="color:$primary;">Required structure</mark>
 
 The following structure is required for every project that uses this build toolset:
 
@@ -33,6 +33,10 @@ The following structure is required for every project that uses this build tools
     * `vnd_listprojs.py`  (file, list of instructions for listing project files)
 
 {% hint style="info" %}
+You don't have to create every vendor script file. You'll only have to create the files as per your project's requirements.
+{% endhint %}
+
+{% hint style="info" %}
 Dependency vendoring may be required for offline builds, especially .NET projects that use NuGet to fetch their dependencies. In this case, you'll have to implement the `localize` function.
 {% endhint %}
 
@@ -40,7 +44,7 @@ How the project calls the build scripts is entirely up to the project and not to
 
 ***
 
-## <mark style="color:$info;">Vendor Python scripts</mark>
+## <mark style="color:$primary;">Vendor Python scripts</mark>
 
 When you begin writing vendor scripts for your projects, you'll have to consider the following:
 
@@ -85,7 +89,7 @@ Please note that the arguments are not supported in these functions.
 
 ***
 
-## <mark style="color:$info;">Other tools</mark>
+## <mark style="color:$primary;">Other tools</mark>
 
 When it comes to ADT's other tools, here are the available tools that you can use:
 
