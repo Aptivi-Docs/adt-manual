@@ -12,25 +12,34 @@ Our build and pack system follows the structure that is outlined below to give y
 
 ***
 
-## <mark style="color:$primary;">Required structure</mark>
+## <mark style="color:$primary;">Script structure</mark>
 
-The following structure is required for every project that uses this build toolset:
+The following structure is required for every project that uses this build toolset. Select the directory to get a list of the required filesystem hierarchy.
 
-* Project directory
-  * `tools` (directory, cloned as a git submodule. Consult the source code for more info.)
-  * `vendor` (directory, you'll have to create the below files and this directory yourself)
-    * `vnd_build.py` (file, list of instructions for build)
-    * `vnd_clean.py` (file, list of instructions for cleanup)
-    * `vnd_test.py` (file, list of instructions for test)
-    * `vnd_increment.py` (file, list of instructions for version incrementation)
-    * `vnd_vendorize.py` (file, list of instructions for dependency vendoring)
-    * `vnd_gendocs.py` (file, list of instructions for documentation generation)
-    * `vnd_packdocs.py` (file, list of instructions  for documentation packing)
-    * `vnd_packbin.py` (file, list of instructions for artifact packing)
-    * `vnd_pushbin.py`  (file, list of instructions for pushing to package registry)
-    * `vnd_liquidize.py`  (file, list of instructions for project obsoletion)
-    * `vnd_updatedeps.py`  (file, list of instructions for updating project dependencies)
-    * `vnd_listprojs.py`  (file, list of instructions for listing project files)
+{% hint style="info" %}
+How the project calls the build scripts is entirely up to the project and not to a standard Makefile that makes use of those scripts found in the tools directory.
+{% endhint %}
+
+<details>
+
+<summary>Vendor directory</summary>
+
+You'll need to create a `vendor` directory with any of the vendor script files, as desired:
+
+| File name           | Description                                                           |
+| ------------------- | --------------------------------------------------------------------- |
+| `vnd_build.py`      | Vendor build script executed from the tool's script.                  |
+| `vnd_clean.py`      | Vendor clean script executed from the tool's script.                  |
+| `vnd_test.py`       | Vendor test script executed from the tool's script.                   |
+| `vnd_increment.py`  | Vendor version incrementation script executed from the tool's script. |
+| `vnd_vendorize.py`  | Vendor dependency vendoring script executed from the tool's script.   |
+| `vnd_gendocs.py`    | Vendor docs generation script executed from the tool's script.        |
+| `vnd_packdocs.py`   | Vendor docs packing script executed from the tool's script.           |
+| `vnd_packbin.py`    | Vendor packing script executed from the tool's script.                |
+| `vnd_pushbin.py`    | Vendor pushing script executed from the tool's script.                |
+| `vnd_liquidize.py`  | Vendor obsoletion script executed from the tool's script.             |
+| `vnd_updatedeps.py` | Vendor dependency update script executed from the tool's script.      |
+| `vnd_listprojs.py`  | Vendor project listing script executed from the tool's script.        |
 
 {% hint style="info" %}
 You don't have to create every vendor script file. You'll only have to create the files as per your project's requirements.
@@ -40,7 +49,7 @@ You don't have to create every vendor script file. You'll only have to create th
 Dependency vendoring may be required for offline builds, especially .NET projects that use NuGet to fetch their dependencies. In this case, you'll have to implement the `localize` function.
 {% endhint %}
 
-How the project calls the build scripts is entirely up to the project and not to a standard Makefile that makes use of those scripts found in the tools directory.
+</details>
 
 ***
 
