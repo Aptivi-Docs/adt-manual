@@ -96,6 +96,27 @@ Please note that the arguments are not supported in these functions.
 
 </details>
 
+<details>
+
+<summary>Custom vendor actions</summary>
+
+ADT v1.1 supports custom vendor actions that you can define by creating a new vendor script file, called `vnd_<action>.py`, where `<action>` denotes the custom action ID. For example, suppose that the action is called `upgradedeps`. You'll have to create a new file under the vendor script called `vnd_upgradedeps.py`, and add the minimal boilerplate:
+
+{% code expandable="true" %}
+```py
+def vnd_action(args):
+    # Your action code here
+```
+{% endcode %}
+
+The above code runs with the arguments as a list of arguments that ADT passes to the vendor script. You can create a parser with it using the standard [argparse](https://docs.python.org/3/library/argparse.html) module.
+
+{% hint style="info" %}
+Custom vendor actions don't support pre-action and post-action events. This is a limitation that will be resolved in a future ADT version.
+{% endhint %}
+
+</details>
+
 ***
 
 ## <mark style="color:$primary;">Other tools</mark>
@@ -118,7 +139,7 @@ The `dnresxlang` action only supports .NET projects. You can find the JSON struc
 
 <summary>Git-specific actions</summary>
 
-<table><thead><tr><th width="109.33331298828125">Action</th><th>Usage</th><th>Description</th></tr></thead><tbody><tr><td><code>tags</code></td><td></td><td>Lists tags for the whole repo</td></tr><tr><td><code>branches</code></td><td></td><td>Lists checked-out branches</td></tr><tr><td><code>commits</code></td><td></td><td>Lists commits in the current branch</td></tr><tr><td><code>status</code></td><td></td><td>Lists status of the local repo</td></tr><tr><td><code>revert</code></td><td><code>commit</code></td><td>Creates a commit that reverts a commit</td></tr><tr><td><code>commit</code></td><td><code>-s summary -t type [-b body] [-a attributes] [-i --assistant model] [-c commit] [-d --dry]</code></td><td>Creates a conventional commit with summary and <a href="https://app.gitbook.com/s/Id4bob6wnHvpX4zbVVtI/guidelines/contribution-guidelines#contribution-guidelines">type</a></td></tr><tr><td><code>push</code></td><td><code>[-r remote]</code></td><td>Pushes commits to either the current remote or a specific remote</td></tr><tr><td><code>reset</code></td><td><code>commit</code></td><td>Resets to a commit</td></tr><tr><td><code>hardclean</code></td><td></td><td>Forces destructive removal of untracked files, even ignored ones (executes <code>git clean -xdf</code>)</td></tr></tbody></table>
+<table><thead><tr><th width="109.33331298828125">Action</th><th>Usage</th><th>Description</th></tr></thead><tbody><tr><td><code>tags</code></td><td></td><td>Lists tags for the whole repo</td></tr><tr><td><code>branches</code></td><td><code>[-r --remotes]</code></td><td>Lists checked-out branches</td></tr><tr><td><code>commits</code></td><td></td><td>Lists commits in the current branch</td></tr><tr><td><code>status</code></td><td></td><td>Lists status of the local repo</td></tr><tr><td><code>revert</code></td><td><code>commit</code></td><td>Creates a commit that reverts a commit</td></tr><tr><td><code>commit</code></td><td><code>-s summary -t type [-b body] [-a attributes] [-i --assistant model] [-c commit] [-d --dry] [-pn 1] [-pt 1]</code></td><td>Creates a conventional commit with summary and <a href="https://app.gitbook.com/s/Id4bob6wnHvpX4zbVVtI/guidelines/contribution-guidelines#contribution-guidelines">type</a></td></tr><tr><td><code>push</code></td><td><code>[-r remote]</code></td><td>Pushes commits to either the current remote or a specific remote</td></tr><tr><td><code>reset</code></td><td><code>commit</code></td><td>Resets to a commit</td></tr><tr><td><code>hardclean</code></td><td></td><td>Forces destructive removal of untracked files, even ignored ones (executes <code>git clean -xdf</code>)</td></tr></tbody></table>
 
 {% hint style="warning" %}
 In order to be able to use Git-specific actions, you'll have to clone ADT as submodule in your repository after initializing it. You may need to use the `git` command directly in some situations. As for testing the above commands on ADT itself, you'll have to append the `--self` switch.
@@ -127,7 +148,7 @@ In order to be able to use Git-specific actions, you'll have to clone ADT as sub
 </details>
 
 {% hint style="info" %}
-You can pass `-v` to any ADT command to enable verbose output, and you can pass `--nobanner` to prevent showing version information.
+You can pass `-v` before any ADT action to enable verbose output, and you can pass `--nobanner` to prevent showing version information. For example, `python adt.py --verbose --nobanner push`.
 {% endhint %}
 
 {% hint style="warning" %}
