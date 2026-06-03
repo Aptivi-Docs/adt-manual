@@ -33,6 +33,24 @@ To learn more about the structure of the system, take a look here:
 Below is the release history of the toolkit:
 
 {% updates format="full" %}
+{% update date="2026-06-02" %}
+## <mark style="color:$primary;">v1.2.0.1</mark>
+
+<mark style="color:yellow;">Fixed project root obtaining</mark>
+{% endupdate %}
+
+{% update date="2026-05-31" %}
+## <mark style="color:$primary;">v1.2.0.0</mark>
+
+<mark style="color:green;">Added fetch and pull actions</mark>
+
+<mark style="color:green;">Added project path switch</mark>
+
+<mark style="color:green;">Added commit and push switch</mark>
+
+<mark style="color:yellow;">General improvements and bug fixes</mark>
+{% endupdate %}
+
 {% update date="2026-05-10" %}
 ## <mark style="color:$primary;">v1.1.0.0</mark>
 
