@@ -33,6 +33,12 @@ To learn more about the structure of the system, take a look here:
 Below is the release history of the toolkit:
 
 {% updates format="full" %}
+{% update date="2026-06-09" %}
+## <mark style="color:$primary;">v1.2.0.2</mark>
+
+<mark style="color:yellow;">Fixed JSON loading causing localizations to have garbled characters</mark>
+{% endupdate %}
+
 {% update date="2026-06-02" %}
 ## <mark style="color:$primary;">v1.2.0.1</mark>
 
