@@ -37,6 +37,8 @@ Below is the release history of the toolkit:
 ## <mark style="color:$primary;">v1.2.0.2</mark>
 
 <mark style="color:yellow;">Fixed JSON loading causing localizations to have garbled characters</mark>
+
+<mark style="color:yellow;">Fixed encoding declaration issue causing .NET to fail to build resources</mark>
 {% endupdate %}
 
 {% update date="2026-06-02" %}
