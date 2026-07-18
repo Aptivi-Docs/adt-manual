@@ -33,6 +33,12 @@ To learn more about the structure of the system, take a look here:
 Below is the release history of the toolkit:
 
 {% updates format="full" %}
+{% update date="2026-07-16" %}
+## <mark style="color:$primary;">v1.2.0.3</mark>
+
+<mark style="color:yellow;">Aptivi Development Kit (ADT) is now an application!</mark>
+{% endupdate %}
+
 {% update date="2026-06-09" %}
 ## <mark style="color:$primary;">v1.2.0.2</mark>
 

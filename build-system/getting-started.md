@@ -25,15 +25,14 @@ Follow the steps to create a minimal C# application [here](https://learn.microso
 {% endstep %}
 
 {% step %}
-### <mark style="color:$primary;">Open the terminal and clone the tools</mark>
+### <mark style="color:$primary;">Open the terminal and install ADT</mark>
 
 Open the terminal by going to **Terminal** > **New Terminal** (or press the <kbd>CTRL</kbd> + <kbd>SHIFT</kbd> + <kbd>\`</kbd> keys).
 
-Then, execute the `git clone https://github.com/Aptivi/tools` command
+Then, install ADT using either of the following:
 
-{% hint style="info" %}
-If you've initialized the Git repository for your project, you'll have to clone it as a submodule inside the root directory of your project using the `git submodule add https://github.com/Aptivi/tools` command and to push the commit.
-{% endhint %}
+* Generally, `pip install --upgrade aptivi-adt` is sufficient.
+* Ubuntu users can install ADT from [this Launchpad PPA](https://launchpad.net/~eofla/+archive/ubuntu/adt).
 {% endstep %}
 
 {% step %}
@@ -99,8 +98,8 @@ def get_dirs(directory):
 Open the terminal emulator on your target platform, change the working directory to the project directory, and execute the build and the clean operations using the following commands:
 
 ```shellscript
-$ python ./tools/adt.py build
-$ python ./tools/adt.py clean
+$ adt build
+$ adt clean
 ```
 {% endstep %}
 {% endstepper %}

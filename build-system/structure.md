@@ -150,9 +150,5 @@ However, you can specify a path to a specific project that uses Git using the `-
 </details>
 
 {% hint style="info" %}
-You can pass `-v` before any ADT action to enable verbose output, and you can pass `--nobanner` to prevent showing version information. For example, `python adt.py --verbose --nobanner push`.
-{% endhint %}
-
-{% hint style="warning" %}
-To be able to use other tools, you'll have to either install dependencies from your system package manager outlined in the [`requirements.txt`](https://github.com/Aptivi/tools/blob/main/requirements.txt) file, or you'll have to use `pip install -r tools/requirements.txt` to install the required dependencies. You can learn more about requirements.txt [here](https://packaging.python.org/en/latest/tutorials/installing-packages/#requirements-files).
+You can pass `-v` before any ADT action to enable verbose output, and you can pass `--nobanner` to prevent showing version information. For example, `adt -v --nobanner push`.
 {% endhint %}
