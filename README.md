@@ -33,6 +33,12 @@ To learn more about the structure of the system, take a look here:
 Below is the release history of the toolkit:
 
 {% updates format="full" %}
+{% update date="2026-09-06" %}
+## <mark style="color:$primary;">v1.2.0.4</mark>
+
+<mark style="color:yellow;">Fixed critical issue when making commits</mark>
+{% endupdate %}
+
 {% update date="2026-07-16" %}
 ## <mark style="color:$primary;">v1.2.0.3</mark>
 
